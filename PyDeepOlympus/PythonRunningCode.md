@@ -59,5 +59,5 @@ The **Python interpreter** consists of two essential components:
 **JIT** compiles code into machine code during runtime, and reusing the most used parts of the program. 
 
 **CPython** keeps things simple; **JIT** focuses on speed.
-
+### Diagram
 ![Diagram](diagram.jpeg)
