@@ -61,6 +61,3 @@ The **Python interpreter** consists of two essential components:
 **CPython** keeps things simple; **JIT** focuses on speed.
 ### Diagram
 ![Diagram](diagram.jpeg)
-
-
-#### Used 50% AI & 50% Human Understanding & Time
