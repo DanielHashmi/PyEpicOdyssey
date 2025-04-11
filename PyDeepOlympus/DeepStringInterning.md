@@ -8,10 +8,10 @@ print(a is b)
 ```
 
 ### **Answer Choices:**
-- ✅ True  
-- ✅ False  
-- ✅ It Depends on the Python Version  
-- ✅ It Depends on the Environment  
+-  True  
+-  False  
+-  It Depends on the Python Version  
+-  It Depends on the Environment  
 
 ---
 
