@@ -32,7 +32,8 @@ If you want to understand Python better, this is for you.
 
 - 🧪 **Edge Cases in Python**  
   Examples that seem strange at first but make sense once you understand how Python actually works.
-
+  
+- And More...
 ---
 
 ## 🧠 Target Audience
