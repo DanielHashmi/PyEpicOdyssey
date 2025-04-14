@@ -35,21 +35,6 @@ If you want to understand Python better, this is for you.
 
 ---
 
-## 📂 Folder Structure
-
-```
-/
-├── bytecode/               # dis module, compilation process
-├── memory_management/      # GC, reference cycles, slots
-├── async_and_concurrency/  # asyncio, threads, multiprocessing
-├── data_model/             # dunder methods, metaclasses, inheritance
-├── weird_python/           # edge cases, syntax oddities
-├── performance/            # optimization examples
-└── notes/                  # raw notes, mind maps, cheatsheets
-```
-
----
-
 ## 🧠 Target Audience
 
 - You know Python basics
