@@ -60,7 +60,7 @@ If you want to understand Python better, this is for you.
 
 ## 👨‍💻 About Me
 
-I'm **Daniel Hashmi** — full-stack dev, Python/C++ programmer, and founder of [DanielCodeForge](https://danielcodeforge.vercel.app) & [DanielForgeChronicles](https://danielforgechronicles.vercel.app).
+I'm **Daniel Hashmi** — full-stack dev, Python/CC++ programmer, and founder of [DanielCodeForge](https://danielcodeforge.vercel.app) & [DanielForgeChronicles](https://danielforgechronicles.vercel.app).
 
 - Focused on clean code and clear understanding  
 - I prefer building things that help others learn faster
