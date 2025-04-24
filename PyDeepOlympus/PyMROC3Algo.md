@@ -135,3 +135,5 @@ Since Python can’t resolve this conflict, it raises:
 ```
 TypeError: Cannot create a consistent method resolution order (MRO) for bases First, Second
 ```
+
+**Bones:** Java doesn't support multiple inheritance specifically to avoid the complexity and ambiguity caused by the **Diamond Problem**.
