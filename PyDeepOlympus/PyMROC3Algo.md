@@ -1,3 +1,5 @@
+### Disclaimer: This is going to be Complicated!
+
 Let’s figure out why this Python code raises a **TypeError**:
 
 ```python
