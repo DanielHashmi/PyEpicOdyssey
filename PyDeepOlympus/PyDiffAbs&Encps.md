@@ -7,7 +7,9 @@
 
 ## Concealing the inner workings and exposing only what is necessary: This is abstraction.
 
-While encapsulation does involve hiding internal details (e,g Bundling/Hiding/Packing data & methods), its primary purpose is to bundle and protect the data and methods, not necessarily to simplify the interface for the user. Abstraction, however, is all about simplifying the interaction by hiding complexity and showing only the essential parts.
+In the two statements above i didn't used word "HIDE", But if you understand the context and meaning, Then i have used word "HIDE" implicitly in both statement's!!
+
+Encapsulation does involve hiding internal details (e,g Bundling/Hiding/Packing data & methods), its primary purpose is to bundle and protect the data and methods, not necessarily to simplify the interface for the user. Abstraction, however, is all about simplifying the interaction by hiding complexity and showing only the essential parts.
 
 ---
 
