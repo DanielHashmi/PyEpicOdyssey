@@ -13,9 +13,9 @@ When you do this:
 ```python
 model_settings = ModelSettings(
     tool_choice="auto",
-    tool_use_behavior="stop_on_first_tool",
     parallel_tool_calls=True,
 )
+tool_use_behavior="stop_on_first_tool",
 ```
 
 And the LLM selects multiple tools like:
