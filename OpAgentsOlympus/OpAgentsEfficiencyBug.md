@@ -82,4 +82,6 @@ The SDK **should ideally support**:
 
 💬 If you’re building agents with expensive tools, keep this in mind or you might be burning tokens and time for nothing.
 
+> To see a practical example of this: https://github.com/DanielHashmi/AgenticAIProjects/blob/main/openai_agents_sdk_parallel_tool_calls.py
+
 If you found this helpful ⭐ this repo! Keep Coding 💖
