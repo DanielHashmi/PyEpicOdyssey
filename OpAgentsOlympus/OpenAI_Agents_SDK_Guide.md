@@ -1616,3 +1616,7 @@ By default, `draw_graph()` displays the graph inline. You can also open it in a 
 This creates `agent_graph.png` (or `.pdf` if you specify) in your working directory.
 
 ---
+
+### After reading this whole, Now you are ready to get start with the official docs: https://openai.github.io/openai-agents-python/
+
+#### Happy Coding 💖
