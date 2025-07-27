@@ -1,17 +1,25 @@
-import asyncio
-from agents import Agent, Runner, set_trace_processors
-from langsmith.wrappers import OpenAIAgentsTracingProcessor
+import asyncio  
+from agents import Agent, Runner, function_tool
+from langsmith import traceable
 from open_router_config import config
-async def main():
-    assistant = Agent(
-        name="Assistant",
+  
+@traceable  
+async def traced_agent_run(agent, question, config):  
+    return await Runner.run(agent, question, run_config=config)  
+
+@function_tool
+def get_weather(city: str):
+    return f"The weather in {city} is sunny"
+
+async def main():  
+    agent = Agent(  
+        name="Assistant",  
         instructions="You are helpful Assistant.",
+        tools=[get_weather]
     )
-
-    question = "How are you?."
-    result = await Runner.run(agent, question, run_config=config)
-    print(result.final_output)
-
-if __name__ == "__main__":
-    set_trace_processors([OpenAIAgentsTracingProcessor()])
-    asyncio.run(main()) 
+    
+    result = await traced_agent_run(agent, "What is the weather in karachi?", config)  
+    print(result.final_output)  
+  
+if __name__ == "__main__":  
+    asyncio.run(main())
