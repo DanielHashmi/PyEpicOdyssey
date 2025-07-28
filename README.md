@@ -65,8 +65,11 @@ Full-stack developer, TS/JS/PY/C/C++ programmer, Learning Agentic AI, Web 3 & Cl
 ## 🤝 Contributions
 
 Found a Mistake!
+
 Want to add a weird Python or agent SDK edge case?
+
 Want to add your own experiment or breakdown?  
+
 PRs are welcome!  
 
 ---
