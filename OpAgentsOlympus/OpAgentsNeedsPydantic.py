@@ -164,7 +164,7 @@ class User(BaseModel):
 if __name__ == "__main__":
     user_data = {
         "id": "123",  # String to int coercion
-        "full_name": "  john doe  ",  # Whitespace stripping + title casing
+        "full_name": "  john doe  ",  # Whitespace stripping
         "email_address": "john@example.com",  # Email validation
         "password": "secretpassword123",  # Secret string handling
         "age": "25",  # String to int coercion
