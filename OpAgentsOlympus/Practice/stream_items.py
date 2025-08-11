@@ -4,6 +4,7 @@ import random
 from agents import Agent, ItemHelpers, Runner, function_tool
 from config import config
 
+
 @function_tool
 def random_number() -> int:
     print("I was called")
@@ -17,11 +18,7 @@ async def main():
         tools=[random_number],
     )
 
-    result = Runner.run_streamed(
-        agent,
-        input="tell me jokes",
-        run_config=config
-    )
+    result = Runner.run_streamed(agent, input="tell me jokes", run_config=config)
     print("=== Run starting ===")
     async for event in result.stream_events():
         # We'll ignore the raw responses event deltas
@@ -36,7 +33,9 @@ async def main():
             elif event.item.type == "tool_call_output_item":
                 print(f"-- Tool output: {event.item.output}")
             elif event.item.type == "message_output_item":
-                print(f"-- Message output:\n {ItemHelpers.text_message_output(event.item)}")
+                print(
+                    f"-- Message output:\n {ItemHelpers.text_message_output(event.item)}"
+                )
             else:
                 pass  # Ignore other event types
 

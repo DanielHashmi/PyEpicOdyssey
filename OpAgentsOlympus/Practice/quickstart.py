@@ -1,6 +1,13 @@
 from pydantic import BaseModel
-from agents import Agent, GuardrailFunctionOutput, Runner, set_tracing_disabled, OpenAIChatCompletionsModel, InputGuardrail, RunConfig
-from openai.types.responses import ResponseTextDeltaEvent
+from agents import (
+    Agent,
+    GuardrailFunctionOutput,
+    Runner,
+    set_tracing_disabled,
+    OpenAIChatCompletionsModel,
+    InputGuardrail,
+    RunConfig,
+)
 import os
 from openai import AsyncOpenAI
 import dotenv
@@ -8,7 +15,7 @@ import asyncio
 
 dotenv.load_dotenv()
 set_tracing_disabled(True)
-GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY')
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 
 if not GEMINI_API_KEY:
     raise ValueError("API key not found!!")
@@ -17,12 +24,14 @@ client = AsyncOpenAI(
     api_key=GEMINI_API_KEY,
     base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
 )
-model = OpenAIChatCompletionsModel(model='gemini-2.0-flash', openai_client=client)
+model = OpenAIChatCompletionsModel(model="gemini-2.0-flash", openai_client=client)
 config = RunConfig(model=model, model_provider=client)
+
 
 class HomeworkOutput(BaseModel):
     is_homework: bool
     reasoning: str
+
 
 guardrail_agent = Agent(
     name="Guardrail check",
@@ -44,7 +53,9 @@ history_tutor_agent = Agent(
 
 
 async def homework_guardrail(ctx, agent, input_data):
-    result = await Runner.run(guardrail_agent, input_data, context=ctx.context, run_config=config)
+    result = await Runner.run(
+        guardrail_agent, input_data, context=ctx.context, run_config=config
+    )
     final_output = result.final_output_as(HomeworkOutput)
     print(final_output)
     return GuardrailFunctionOutput(
@@ -52,14 +63,16 @@ async def homework_guardrail(ctx, agent, input_data):
         tripwire_triggered=not final_output.is_homework,
     )
 
+
 triage_agent = Agent(
     name="Triage Agent",
     instructions="You determine which agent to use based on the user's homework question",
     handoffs=[history_tutor_agent, math_tutor_agent],
     input_guardrails=[
         InputGuardrail(guardrail_function=homework_guardrail),
-    ]
+    ],
 )
+
 
 async def main():
     # result =  Runner.run_streamed(triage_agent, "What is 2 + 2?", run_config=config)
@@ -69,6 +82,7 @@ async def main():
 
     result = await Runner.run(triage_agent, "what is life", run_config=config)
     print(result.final_output)
+
 
 if __name__ == "__main__":
     asyncio.run(main())

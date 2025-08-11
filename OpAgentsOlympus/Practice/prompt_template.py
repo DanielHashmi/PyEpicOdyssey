@@ -47,7 +47,12 @@ async def dynamic_prompt(prompt_id: str):
         prompt=_get_dynamic_prompt,
     )
 
-    result = await Runner.run(agent, "Tell me about recursion in programming.", context=context, run_config=config)
+    result = await Runner.run(
+        agent,
+        "Tell me about recursion in programming.",
+        context=context,
+        run_config=config,
+    )
     print(result.final_output)
 
 
@@ -63,7 +68,9 @@ async def static_prompt(prompt_id: str):
         },
     )
 
-    result = await Runner.run(agent, "Tell me about recursion in programming.", run_config=config)
+    result = await Runner.run(
+        agent, "Tell me about recursion in programming.", run_config=config
+    )
     print(result.final_output)
 
 

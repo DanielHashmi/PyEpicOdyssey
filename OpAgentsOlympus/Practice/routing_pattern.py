@@ -1,8 +1,14 @@
 import asyncio
-import uuid
 from config import config
 
-from agents import Agent, Runner, TResponseInputItem, trace, handoff, RunContextWrapper, ItemHelpers
+from agents import (
+    Agent,
+    Runner,
+    TResponseInputItem,
+    handoff,
+    RunContextWrapper,
+    ItemHelpers,
+)
 
 """
 This example shows the handoffs/routing pattern. The triage agent receives the first message, and
@@ -10,11 +16,14 @@ then hands off to the appropriate agent based on the language of the request. Re
 streamed to the user.
 """
 
+
 def handoff_called(ctx: RunContextWrapper[None]):
     print("Handing off...")
 
+
 def handoffs(agent: Agent):
     return handoff(agent, on_handoff=handoff_called)
+
 
 french_agent = Agent(
     name="french_agent",
@@ -35,12 +44,13 @@ triage_agent = Agent(
     name="triage_agent",
     instructions="Handoff to the appropriate agent based on the language of the request. You NEVER answer to USER yourself! ALWAYS delegate to specialized agents",
     handoffs=[handoffs(french_agent), handoffs(spanish_agent), handoffs(english_agent)],
-    handoff_description="Triage agent who decide which language agent to delegate the task to."
+    handoff_description="Triage agent who decide which language agent to delegate the task to.",
 )
 
 french_agent.handoffs.append(handoffs(triage_agent))
 spanish_agent.handoffs.append(handoffs(triage_agent))
 english_agent.handoffs.append(handoffs(triage_agent))
+
 
 async def main():
     # We'll create an ID for this conversation, so we can link each trace
@@ -54,13 +64,9 @@ async def main():
         # Each conversation turn is a single trace. Normally, each input from the user would be an
         # API request to your app, and you can wrap the request in a trace()
         # with trace("Routing example", group_id=conversation_id):
-        result = Runner.run_streamed(
-            agent,
-            input=inputs,
-            run_config=config
-        )
+        result = Runner.run_streamed(agent, input=inputs, run_config=config)
         async for event in result.stream_events():
-        # We'll ignore the raw responses event deltas
+            # We'll ignore the raw responses event deltas
             if event.type == "raw_response_event":
                 continue
             elif event.type == "agent_updated_stream_event":
@@ -72,10 +78,11 @@ async def main():
                 elif event.item.type == "tool_call_output_item":
                     print(f"-- Tool output: {event.item.output}")
                 elif event.item.type == "message_output_item":
-                    print(f"-- Message output:\n {ItemHelpers.text_message_output(event.item)}")
+                    print(
+                        f"-- Message output:\n {ItemHelpers.text_message_output(event.item)}"
+                    )
                 else:
                     pass  # Ignore other event types
-
 
         inputs = result.to_input_list()
         print("\n")

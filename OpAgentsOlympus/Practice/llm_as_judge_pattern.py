@@ -5,8 +5,9 @@ from dataclasses import dataclass
 from typing import Literal
 from rich.markdown import Markdown
 from rich.console import Console
-from agents import Agent, ItemHelpers, Runner, TResponseInputItem, trace
+from agents import Agent, ItemHelpers, Runner, TResponseInputItem
 from config import config
+
 """
 This example shows the LLM as a judge pattern. The first agent generates an outline for a story.
 The second agent judges the outline and provides feedback. We loop until the judge is satisfied
@@ -51,17 +52,17 @@ async def main() -> None:
     # with trace("LLM as a judge"):
     while True:
         story_outline_result = await Runner.run(
-            story_outline_generator,
-            input_items,
-            run_config=config
+            story_outline_generator, input_items, run_config=config
         )
 
         input_items = story_outline_result.to_input_list()
-        latest_outline = ItemHelpers.text_message_outputs(story_outline_result.new_items)
-        
+        latest_outline = ItemHelpers.text_message_outputs(
+            story_outline_result.new_items
+        )
+
         console.print(Markdown("## Story outline generated\n\n"))
         console.print(Markdown(f"## Outline: {story_outline_result.final_output}\n\n"))
-        
+
         evaluator_result = await Runner.run(evaluator, input_items, run_config=config)
         result: EvaluationFeedback = evaluator_result.final_output
 

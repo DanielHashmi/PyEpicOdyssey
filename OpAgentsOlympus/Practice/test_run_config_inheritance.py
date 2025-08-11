@@ -5,7 +5,11 @@ from typing import cast
 
 from agents import Agent, RunConfig, Runner
 from agents.tool import function_tool
-from agents.run import get_current_run_config, set_current_run_config, reset_current_run_config
+from agents.run import (
+    get_current_run_config,
+    set_current_run_config,
+    reset_current_run_config,
+)
 
 from .fake_model import FakeModel
 from .test_responses import get_function_tool_call, get_text_message

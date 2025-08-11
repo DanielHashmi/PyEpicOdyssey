@@ -11,7 +11,6 @@ from agents import (
     ModelSettings,
     RunContextWrapper,
     Runner,
-    ToolsToFinalOutputFunction,
     ToolsToFinalOutputResult,
     function_tool,
 )
@@ -58,7 +57,9 @@ async def custom_tool_use_behavior(
     )
 
 
-async def main(tool_use_behavior: Literal["default", "first_tool", "custom"] = "default"):
+async def main(
+    tool_use_behavior: Literal["default", "first_tool", "custom"] = "default",
+):
     if tool_use_behavior == "first_tool":
         behavior = "stop_on_first_tool"
     elif tool_use_behavior == "custom":
@@ -76,8 +77,11 @@ async def main(tool_use_behavior: Literal["default", "first_tool", "custom"] = "
         ),
     )
 
-    result = await Runner.run(agent, input="What's the weather in Tokyo?", run_config=config)
+    result = await Runner.run(
+        agent, input="What's the weather in Tokyo?", run_config=config
+    )
     print(result.final_output)
+
 
 if __name__ == "__main__":
     import argparse

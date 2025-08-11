@@ -2,6 +2,7 @@ import asyncio
 
 from agents import Agent, Runner
 from open_router_config import config
+
 URL = "https://upload.wikimedia.org/wikipedia/commons/0/0c/GoldenGateBridge-001.jpg"
 
 
@@ -16,14 +17,16 @@ async def main():
         [
             {
                 "role": "user",
-                "content": [{"type": "input_image", "detail": "auto", "image_url": URL}],
+                "content": [
+                    {"type": "input_image", "detail": "auto", "image_url": URL}
+                ],
             },
             {
                 "role": "user",
                 "content": "Which country is this?",
             },
         ],
-        run_config=config
+        run_config=config,
     )
     print(result.final_output)
 

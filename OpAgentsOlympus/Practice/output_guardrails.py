@@ -29,9 +29,13 @@ a phone number.
 
 # The agent's output type
 class MessageOutput(BaseModel):
-    reasoning: str = Field(description="Thoughts on how to respond to the user's message")
+    reasoning: str = Field(
+        description="Thoughts on how to respond to the user's message"
+    )
     response: str = Field(description="The response to the user's message")
-    user_name: str | None = Field(description="The name of the user who sent the message, if known")
+    user_name: str | None = Field(
+        description="The name of the user who sent the message, if known"
+    )
 
 
 @output_guardrail

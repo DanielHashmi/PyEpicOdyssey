@@ -43,12 +43,16 @@ guardrail_agent = Agent(
 
 @input_guardrail
 async def math_guardrail(
-    context: RunContextWrapper[None], agent: Agent, input: str | list[TResponseInputItem]
+    context: RunContextWrapper[None],
+    agent: Agent,
+    input: str | list[TResponseInputItem],
 ) -> GuardrailFunctionOutput:
     """This is an input guardrail function, which happens to call an agent to check if the input
     is a math homework question.
     """
-    result = await Runner.run(guardrail_agent, input, context=context.context, run_config=config)
+    result = await Runner.run(
+        guardrail_agent, input, context=context.context, run_config=config
+    )
     final_output = result.final_output_as(MathHomeworkOutput)
 
     return GuardrailFunctionOutput(

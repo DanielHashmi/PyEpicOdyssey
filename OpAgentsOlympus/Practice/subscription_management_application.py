@@ -6,7 +6,8 @@ from dataclasses import dataclass
 from pydantic import BaseModel, Field  
 from open_router_config import config
 from agents import Agent, Runner, function_tool, SQLiteSession, RunContextWrapper  
-  
+
+config.tracing_disabled = False
 # Pydantic models for structured output  
 class UserEvent(BaseModel):  
     uid: str  
@@ -16,7 +17,7 @@ class UserEvent(BaseModel):
   
 class PlanFeatures(BaseModel):  
     plan_name: str  
-    api_calls_limit: int  
+    api_calls_limit: int  2
     support_level: str  
     features: list[str]  
   

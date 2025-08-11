@@ -4,6 +4,7 @@ from typing import Literal
 from config import config
 from agents import Agent, RunContextWrapper, Runner
 
+
 class CustomContext:
     def __init__(self, style: Literal["haiku", "pirate", "robot"]):
         self.style = style
@@ -20,13 +21,17 @@ def custom_instructions(
     else:
         return "Respond as a robot and say 'beep boop' a lot."
 
+
 agent = Agent(
     name="Chat agent",
     instructions=custom_instructions,
 )
 
+
 async def main():
-    choice: Literal["haiku", "pirate", "robot"] = random.choice(["haiku", "pirate", "robot"])
+    choice: Literal["haiku", "pirate", "robot"] = random.choice(
+        ["haiku", "pirate", "robot"]
+    )
     context = CustomContext(style=choice)
     print(f"Using style: {choice}\n")
 

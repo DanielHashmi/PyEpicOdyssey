@@ -22,18 +22,13 @@ if not gemini_api_key:
 # Setup Gemini client
 external_client = AsyncOpenAI(
     api_key=gemini_api_key,
-    base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
+    base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
 )
 
 # Preferred Gemini model setup
 model = OpenAIChatCompletionsModel(
-    model="gemini-2.0-flash",
-    openai_client=external_client
+    model="gemini-2.0-flash", openai_client=external_client
 )
 
 # Runner config (you can export this)
-config = RunConfig(
-    model=model,
-    model_provider=external_client,
-    tracing_disabled=True
-)
+config = RunConfig(model=model, model_provider=external_client, tracing_disabled=True)

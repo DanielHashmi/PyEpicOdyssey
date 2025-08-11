@@ -19,10 +19,7 @@ gemini_api_key = os.getenv("GEMINI_API_KEY")
 if not gemini_api_key:
     raise ValueError("GEMINI_API_KEY is not set. Please define it in your .env file.")
 
-model=LitellmModel(model='gemini/gemini-2.0-flash', api_key=gemini_api_key)
+model = LitellmModel(model="gemini/gemini-2.0-flash", api_key=gemini_api_key)
 
 # Runner config (you can export this)
-config = RunConfig(
-    model=model,
-    tracing_disabled=True
-)
+config = RunConfig(model=model, tracing_disabled=True)

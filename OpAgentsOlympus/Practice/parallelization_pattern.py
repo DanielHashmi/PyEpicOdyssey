@@ -1,7 +1,8 @@
 import asyncio
 
-from agents import Agent, ItemHelpers, Runner, trace
+from agents import Agent, ItemHelpers, Runner
 from config import config
+
 """
 This example shows the parallelization pattern. We run the agent three times in parallel, and pick
 the best result.
@@ -24,21 +25,9 @@ async def main():
     # Ensure the entire workflow is a single trace
     # with trace("Parallel translation"):
     res_1, res_2, res_3 = await asyncio.gather(
-        Runner.run(
-            spanish_agent,
-            msg,
-            run_config=config
-        ),
-        Runner.run(
-            spanish_agent,
-            msg,
-            run_config=config
-        ),
-        Runner.run(
-            spanish_agent,
-            msg,
-            run_config=config
-        ),
+        Runner.run(spanish_agent, msg, run_config=config),
+        Runner.run(spanish_agent, msg, run_config=config),
+        Runner.run(spanish_agent, msg, run_config=config),
     )
 
     outputs = [
@@ -53,7 +42,7 @@ async def main():
     best_translation = await Runner.run(
         translation_picker,
         f"Input: {msg}\n\nTranslations:\n{translations}",
-        run_config=config
+        run_config=config,
     )
 
     print("\n\n-----")

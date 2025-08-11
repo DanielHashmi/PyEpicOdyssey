@@ -1,4 +1,16 @@
-from agents import Agent, Runner, set_tracing_disabled, OpenAIChatCompletionsModel, function_tool, RunHooks, AgentHooks, RunContextWrapper, TContext, Tool, RunConfig, ModelSettings
+from agents import (
+    Agent,
+    Runner,
+    set_tracing_disabled,
+    OpenAIChatCompletionsModel,
+    function_tool,
+    RunHooks,
+    AgentHooks,
+    RunContextWrapper,
+    TContext,
+    Tool,
+    RunConfig,
+)
 from typing import Any
 import os
 from openai import AsyncOpenAI
@@ -7,7 +19,7 @@ import asyncio
 
 dotenv.load_dotenv()
 set_tracing_disabled(True)
-GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY')
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 
 if not GEMINI_API_KEY:
     raise ValueError("API key not found!!")
@@ -15,7 +27,8 @@ client = AsyncOpenAI(
     api_key=GEMINI_API_KEY,
     base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
 )
-model = OpenAIChatCompletionsModel(model='gemini-1.5-pro', openai_client=client)
+model = OpenAIChatCompletionsModel(model="gemini-1.5-pro", openai_client=client)
+
 
 class Run_Hooks(RunHooks):
     """A class that receives callbacks on various lifecycle events in an agent run. Subclass and
@@ -26,7 +39,7 @@ class Run_Hooks(RunHooks):
         self, context: RunContextWrapper[TContext], agent: Agent[TContext]
     ) -> None:
         """Called before the agent is invoked. Called each time the current agent changes."""
-        print(f"Parent Runner: on_agent_start called...")
+        print("Parent Runner: on_agent_start called...")
 
     async def on_agent_end(
         self,
@@ -35,7 +48,7 @@ class Run_Hooks(RunHooks):
         output: Any,
     ) -> None:
         """Called when the agent produces a final output."""
-        print(f"Parent Runner: on_agent_end called...")
+        print("Parent Runner: on_agent_end called...")
 
     async def on_handoff(
         self,
@@ -44,7 +57,7 @@ class Run_Hooks(RunHooks):
         to_agent: Agent[TContext],
     ) -> None:
         """Called when a handoff occurs."""
-        print(f"Parent Runner: on_handoff called...")
+        print("Parent Runner: on_handoff called...")
 
     async def on_tool_start(
         self,
@@ -53,7 +66,7 @@ class Run_Hooks(RunHooks):
         tool: Tool,
     ) -> None:
         """Called before a tool is invoked."""
-        print(f"Parent Runner: on_tool_start called...")
+        print("Parent Runner: on_tool_start called...")
 
     async def on_tool_end(
         self,
@@ -63,7 +76,8 @@ class Run_Hooks(RunHooks):
         result: str,
     ) -> None:
         """Called after a tool is invoked."""
-        print(f"Parent Runner: on_tool_end called...")
+        print("Parent Runner: on_tool_end called...")
+
 
 class Agent_Hooks(AgentHooks):
     """A class that receives callbacks on various lifecycle events for a specific agent. You can
@@ -72,10 +86,12 @@ class Agent_Hooks(AgentHooks):
     Subclass and override the methods you need.
     """
 
-    async def on_start(self, context: RunContextWrapper[TContext], agent: Agent[TContext]) -> None:
+    async def on_start(
+        self, context: RunContextWrapper[TContext], agent: Agent[TContext]
+    ) -> None:
         """Called before the agent is invoked. Called each time the running agent is changed to this
         agent."""
-        print(f"Parent Agent: on_start called...")
+        print("Parent Agent: on_start called...")
 
     async def on_end(
         self,
@@ -84,7 +100,7 @@ class Agent_Hooks(AgentHooks):
         output: Any,
     ) -> None:
         """Called when the agent produces a final output."""
-        print(f"Parent Agent: on_end called...")
+        print("Parent Agent: on_end called...")
 
     async def on_handoff(
         self,
@@ -94,7 +110,7 @@ class Agent_Hooks(AgentHooks):
     ) -> None:
         """Called when the agent is being handed off to. The `source` is the agent that is handing
         off to this agent."""
-        print(f"Parent Agent: on_handoff called...")
+        print("Parent Agent: on_handoff called...")
 
     async def on_tool_start(
         self,
@@ -103,7 +119,7 @@ class Agent_Hooks(AgentHooks):
         tool: Tool,
     ) -> None:
         """Called before a tool is invoked."""
-        print(f"Parent Agent: on_tool_start called...")
+        print("Parent Agent: on_tool_start called...")
 
     async def on_tool_end(
         self,
@@ -113,8 +129,9 @@ class Agent_Hooks(AgentHooks):
         result: str,
     ) -> None:
         """Called after a tool is invoked."""
-        print(f"Parent Agent: on_tool_end called...")
-        
+        print("Parent Agent: on_tool_end called...")
+
+
 class Child_Agent_Hooks(AgentHooks):
     """A class that receives callbacks on various lifecycle events for a specific agent. You can
     set this on `agent.hooks` to receive events for that specific agent.
@@ -122,10 +139,12 @@ class Child_Agent_Hooks(AgentHooks):
     Subclass and override the methods you need.
     """
 
-    async def on_start(self, context: RunContextWrapper[TContext], agent: Agent[TContext]) -> None:
+    async def on_start(
+        self, context: RunContextWrapper[TContext], agent: Agent[TContext]
+    ) -> None:
         """Called before the agent is invoked. Called each time the running agent is changed to this
         agent."""
-        print(f"Child Agent: on_start called...")
+        print("Child Agent: on_start called...")
 
     async def on_end(
         self,
@@ -134,7 +153,7 @@ class Child_Agent_Hooks(AgentHooks):
         output: Any,
     ) -> None:
         """Called when the agent produces a final output."""
-        print(f"Child Agent: on_end called...")
+        print("Child Agent: on_end called...")
 
     async def on_handoff(
         self,
@@ -144,7 +163,7 @@ class Child_Agent_Hooks(AgentHooks):
     ) -> None:
         """Called when the agent is being handed off to. The `source` is the agent that is handing
         off to this agent."""
-        print(f"Child Agent: on_handoff called...")
+        print("Child Agent: on_handoff called...")
 
     async def on_tool_start(
         self,
@@ -153,7 +172,7 @@ class Child_Agent_Hooks(AgentHooks):
         tool: Tool,
     ) -> None:
         """Called before a tool is invoked."""
-        print(f"Child Agent: on_tool_start called...")
+        print("Child Agent: on_tool_start called...")
 
     async def on_tool_end(
         self,
@@ -163,36 +182,37 @@ class Child_Agent_Hooks(AgentHooks):
         result: str,
     ) -> None:
         """Called after a tool is invoked."""
-        print(f"Child Agent: on_tool_end called...")
+        print("Child Agent: on_tool_end called...")
 
 
-config = RunConfig(
-    model=model,
-    model_provider=client    
-)
+config = RunConfig(model=model, model_provider=client)
+
 
 @function_tool
 def hello():
-    return 'Hello! from Say Hello Agent/Tool'
-    
+    return "Hello! from Say Hello Agent/Tool"
+
+
 say_hello_agent = Agent(
-    name='say_hello_agent',
-    instructions='You are a say hello agent, You use tools to respond.',
+    name="say_hello_agent",
+    instructions="You are a say hello agent, You use tools to respond.",
     tools=[hello],
     # model=model,
-    hooks=Child_Agent_Hooks()
+    hooks=Child_Agent_Hooks(),
 )
 
 agent = Agent(
-    name='agent',
-    instructions='You are a friendly assistant, You use tools to respond.',
-    tools=[say_hello_agent.as_tool('say_hello_tool','A say hello tool')],
+    name="agent",
+    instructions="You are a friendly assistant, You use tools to respond.",
+    tools=[say_hello_agent.as_tool("say_hello_tool", "A say hello tool")],
     # model=model,
-    hooks=Agent_Hooks()
+    hooks=Agent_Hooks(),
 )
 
+
 async def main():
-    result = await Runner.run(agent, 'Say Hello!', hooks=Run_Hooks(), run_config=config)
+    result = await Runner.run(agent, "Say Hello!", hooks=Run_Hooks(), run_config=config)
     print(result.final_output)
-    
+
+
 asyncio.run(main())

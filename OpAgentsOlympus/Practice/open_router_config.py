@@ -20,14 +20,7 @@ BASE_URL = "https://openrouter.ai/api/v1"
 MODEL = "openai/gpt-4o-mini"
 
 model = OpenAIChatCompletionsModel(
-    model=MODEL,
-    openai_client=AsyncOpenAI(
-        api_key=API_KEY,
-        base_url=BASE_URL
-    )
+    model=MODEL, openai_client=AsyncOpenAI(api_key=API_KEY, base_url=BASE_URL)
 )
 # Runner config (you can export this)
-config = RunConfig(
-    model=model,
-    tracing_disabled=True
-)
+config = RunConfig(model=model)

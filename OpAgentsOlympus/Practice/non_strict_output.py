@@ -23,6 +23,7 @@ class OutputType:
     jokes: dict[str, str]
     """A list of jokes, indexed by joke number."""
 
+
 class CustomOutputSchema(AgentOutputSchemaBase):
     """A demonstration of a custom output schema."""
 
@@ -35,7 +36,9 @@ class CustomOutputSchema(AgentOutputSchemaBase):
     def json_schema(self) -> dict[str, Any]:
         return {
             "type": "object",
-            "properties": {"jokes": {"type": "object", "properties": {"joke": {"type": "string"}}}},
+            "properties": {
+                "jokes": {"type": "object", "properties": {"joke": {"type": "string"}}}
+            },
         }
 
     def is_strict_json_schema(self) -> bool:

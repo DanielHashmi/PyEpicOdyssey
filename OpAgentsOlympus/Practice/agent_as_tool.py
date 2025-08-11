@@ -1,4 +1,4 @@
-from agents import  Agent, Runner, OpenAIChatCompletionsModel, set_tracing_disabled
+from agents import Agent, Runner, OpenAIChatCompletionsModel
 from openai import AsyncOpenAI
 import os
 import asyncio
@@ -20,15 +20,9 @@ API_KEY = os.environ.get("OPENROUTER_API_KEY")
 BASE_URL = "https://openrouter.ai/api/v1"
 MODEL = "openai/gpt-4o-mini"
 
-client = AsyncOpenAI(
-        api_key=API_KEY,
-        base_url=BASE_URL
-    )
+client = AsyncOpenAI(api_key=API_KEY, base_url=BASE_URL)
 
-model = OpenAIChatCompletionsModel(
-    model=MODEL,
-    openai_client=client
-)
+model = OpenAIChatCompletionsModel(model=MODEL, openai_client=client)
 # # Load environment variables
 # gemini_api_key = os.getenv("GEMINI_API_KEY")
 # set_tracing_disabled(True)
@@ -49,14 +43,11 @@ model = OpenAIChatCompletionsModel(
 # )
 
 # Runner config (you can export this)
-config = RunConfig(
-    model=model,
-    tracing_disabled=True
-)
+config = RunConfig(model=model, tracing_disabled=True)
 
 joke_agent = Agent(
     name="joke_agent",
-    instructions="You are a joke agent. Your job is to generate jokes."
+    instructions="You are a joke agent. Your job is to generate jokes.",
 )
 
 orchestrator_agent = Agent(
@@ -64,13 +55,19 @@ orchestrator_agent = Agent(
     instructions="You are an orchestrator agent, you use joke_tool tool to generate jokes",
     tools=[
         joke_agent.as_tool(
-            tool_name="joke_tool",
-            tool_description="A Joke Generator Tools"
+            tool_name="joke_tool", tool_description="A Joke Generator Tools"
         )
-    ]
+    ],
 )
+
+
 async def main():
-    result = await Runner.run(orchestrator_agent, "Give me 2 jokes for a person who is a sleepy coder.", run_config=config)
+    result = await Runner.run(
+        orchestrator_agent,
+        "Give me 2 jokes for a person who is a sleepy coder.",
+        run_config=config,
+    )
     print(result.final_output)
-    
+
+
 asyncio.run(main())

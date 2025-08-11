@@ -1,7 +1,8 @@
 import asyncio
 
-from agents import Agent, ItemHelpers, MessageOutputItem, Runner, trace
+from agents import Agent, ItemHelpers, MessageOutputItem, Runner
 from open_router_config import config
+
 """
 This example shows the agents-as-tools pattern. The frontline agent receives a user message and
 then picks which agents to call, as tools. In this case, it picks from a set of translation

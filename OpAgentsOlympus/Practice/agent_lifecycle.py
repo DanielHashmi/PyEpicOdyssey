@@ -7,6 +7,7 @@ from pydantic import BaseModel
 from agents import Agent, AgentHooks, RunContextWrapper, Runner, Tool, function_tool
 from open_router_config import config
 
+
 class CustomAgentHooks(AgentHooks):
     def __init__(self, display_name: str):
         self.event_counter = 0
@@ -14,21 +15,29 @@ class CustomAgentHooks(AgentHooks):
 
     async def on_start(self, context: RunContextWrapper, agent: Agent) -> None:
         self.event_counter += 1
-        print(f"### ({self.display_name}) {self.event_counter}: Agent {agent.name} started")
+        print(
+            f"### ({self.display_name}) {self.event_counter}: Agent {agent.name} started"
+        )
 
-    async def on_end(self, context: RunContextWrapper, agent: Agent, output: Any) -> None:
+    async def on_end(
+        self, context: RunContextWrapper, agent: Agent, output: Any
+    ) -> None:
         self.event_counter += 1
         print(
             f"### ({self.display_name}) {self.event_counter}: Agent {agent.name} ended with output {output}"
         )
 
-    async def on_handoff(self, context: RunContextWrapper, agent: Agent, source: Agent) -> None:
+    async def on_handoff(
+        self, context: RunContextWrapper, agent: Agent, source: Agent
+    ) -> None:
         self.event_counter += 1
         print(
             f"### ({self.display_name}) {self.event_counter}: Agent {source.name} handed off to {agent.name}"
         )
 
-    async def on_tool_start(self, context: RunContextWrapper, agent: Agent, tool: Tool) -> None:
+    async def on_tool_start(
+        self, context: RunContextWrapper, agent: Agent, tool: Tool
+    ) -> None:
         self.event_counter += 1
         print(
             f"### ({self.display_name}) {self.event_counter}: Agent {agent.name} started tool {tool.name}"
@@ -68,7 +77,7 @@ multiply_agent = Agent(
     name="Multiply Agent",
     instructions="Multiply the number by 2 and then return the final result.",
     tools=[multiply_by_two],
-    output_type=FinalResult, # output_type + tools doesn't work with gemini 
+    output_type=FinalResult,  # output_type + tools doesn't work with gemini
     hooks=CustomAgentHooks(display_name="Multiply Agent"),
 )
 
@@ -77,7 +86,7 @@ start_agent = Agent(
     instructions="Generate a random number. If it's even, stop. If it's odd, hand off to the multiply agent.",
     tools=[random_number],
     handoffs=[multiply_agent],
-    output_type=FinalResult, # output_type + tools doesn't work with gemini
+    output_type=FinalResult,  # output_type + tools doesn't work with gemini
     hooks=CustomAgentHooks(display_name="Start Agent"),
 )
 
@@ -87,7 +96,7 @@ async def main() -> None:
     await Runner.run(
         start_agent,
         input=f"Generate a random number between 0 and {user_input}.",
-        run_config=config
+        run_config=config,
     )
 
     print("Done!")
