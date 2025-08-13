@@ -38,6 +38,7 @@ async def main():
         hooks=TestHooks(),  
         output_guardrails=[OutputGuardrail(guardrail_function=output_guardrail)]  
     )  
+    
     run_hooks = TestRunHooks()  
 
     await Runner.run(  
@@ -46,6 +47,6 @@ async def main():
         hooks=run_hooks,
         run_config=config
     ) 
-    print(execution_order)
+    print(execution_order) # ['on_agent_end_hook', 'on_end_hook', 'output_guardrail']
     
 asyncio.run(main())
