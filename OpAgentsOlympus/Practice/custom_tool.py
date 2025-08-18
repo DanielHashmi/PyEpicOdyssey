@@ -1,7 +1,7 @@
 from agents import FunctionTool, RunContextWrapper, Agent, Runner
 from pydantic import BaseModel
 from typing import Any
-from config import config
+from open_router_config import config
 
 
 class ProcessArgs(BaseModel):

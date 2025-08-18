@@ -7,7 +7,7 @@ def main():
         instructions="You are a helpful assistant.",
     )
     result = Runner.run_sync(
-        agent, input=123, run_config=config
+        agent, input='hello', run_config=config
     )
     print(result.final_output)
 

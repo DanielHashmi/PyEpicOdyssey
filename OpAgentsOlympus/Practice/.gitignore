@@ -1,0 +1,9 @@
+# Exclude Python environment and cache files
+.env
+__pycache__/
+*.pyc
+
+# Exclude lock files
+uv.lock
+tempCodeRunnerFile.py
+openai-agents-python
