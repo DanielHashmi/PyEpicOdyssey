@@ -17,7 +17,7 @@ When you call `Runner.run()` in OpenAI’s Agents SDK, here’s what happens👇
 ## 2️⃣ **Turn Counter & Max Turns Check 🔢**
 
 * The loop starts with turn number `0` and adds `1` each time.
-* If the turns go over your max setting, it stops and raises an error saying “too many turns.”
+* If the turn goes over your max setting, it raises an error and stops execution.
 
 ---
 
