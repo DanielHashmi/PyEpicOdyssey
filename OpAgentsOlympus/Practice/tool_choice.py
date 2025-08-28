@@ -1,7 +1,7 @@
+from openai import AsyncOpenAI
 from agents import (
     Agent,
     Runner,
-    AsyncOpenAI,
     OpenAIChatCompletionsModel,
     RunConfig,
     ModelSettings,
@@ -16,16 +16,16 @@ gemini_api_key = os.getenv("GEMINI_API_KEY")
 if not gemini_api_key:
     raise ValueError("I guess you haven't set API KEY, I'am pretty sure you need to set it dude.")
 
-external_client = AsyncOpenAI(
+client = AsyncOpenAI(
     api_key=gemini_api_key,
     base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
 )
 
 model = OpenAIChatCompletionsModel(
-    model="gemini-2.0-flash", openai_client=external_client
+    model="gemini-2.0-flash", openai_client=client
 )
 
-config = RunConfig(model=model, model_provider=external_client)
+config = RunConfig(model=model)
 
 @function_tool
 def am_i_coder():
@@ -68,7 +68,7 @@ print(result.final_output)
 
 # Difference between None and "auto"
 # tool_choice=None → Uses whatever default the LLM provider has configured
-# tool_choice="auto" → Explicitly tells the LLM it can decide whether to use tools or not
+# tool_choice="auto" → Explicitly tells the LLM it can decide whether to use tools or not (Default)
 
 # tool_choice='required' → Must call a tool
 # tool_choice='tool_name' → Must call that tool
