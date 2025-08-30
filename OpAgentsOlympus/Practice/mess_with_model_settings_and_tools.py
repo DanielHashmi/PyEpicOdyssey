@@ -2,11 +2,11 @@ from open_router_config import config
 from agents import Agent, Runner, function_tool, ModelSettings, RunContextWrapper, StopAtTools
 
 @function_tool
-def say_hello() -> int:
+def say_hello() -> str:
     return 'Hello, Guys!'
 
 @function_tool
-def say_bye(ctx: RunContextWrapper) -> int:
+def say_bye(ctx: RunContextWrapper) -> str:
     return 'Bye, Guys!'
 
 def main():
