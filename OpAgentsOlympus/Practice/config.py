@@ -27,8 +27,8 @@ external_client = AsyncOpenAI(
 
 # Preferred Gemini model setup
 model = OpenAIChatCompletionsModel(
-    model="gemini-2.0-flash", openai_client=external_client
+    model="gemini-1.5-flash", openai_client=external_client
 )
 
 # Runner config (you can export this)
-config = RunConfig(model=model, model_provider=external_client, tracing_disabled=True)
+config = RunConfig(model=model, model_provider=external_client)
