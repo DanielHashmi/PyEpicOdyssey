@@ -52,3 +52,6 @@ user_profile = result.final_output
 print(f"Name: {user_profile.name}")
 print(f"Age: {user_profile.age}")
 print(f"Interests: {', '.join(user_profile.interests)}")
+
+
+# The main benefit of custom output schemas is when you need validation logic beyond what Pydantic provides automatically. For simple cases, using output_type=UserProfile directly is simpler and sufficient
