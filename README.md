@@ -54,12 +54,12 @@ If you want to truly understand Python (and the new OpenAI Agents SDK), you’re
 
 ## 🚀 **Ready to dig deep?**
 
-1. Dive into [Python Internals](docs/PyDeepOlympus/PythonRunningCode.md) to understand the language better
+1. Dive into [Python Internals](docs/PyDeepOlympus/) to understand the language better
 2. Start with the [OpenAI Agents SDK Guide](docs/OpAgentsOlympus/OpenAI_Agents_SDK_Guide.md) for a comprehensive overview
 3. Check out the [Practice Examples](docs/OpAgentsOlympus/practice/) for hands-on learning
 4. Explore [Advance Concepts](docs/OpAgentsOlympus/) to be confident when building
 5. Gaze at [OpenAI Agents SDK Advance MindMap](docs/OpAgentsOlympus/openai_agent_sdk_mindmap) to get quick clear concepts
-6. Attempt [Complex Quizzes](docs/OpAgentsOlympus/openai_agent_sdk_mindmap.md) to challenge yourself at the deepest levels
+6. Attempt [Complex Quizzes](docs/OpAgentsOlympus/practice/100-mcqs-answer/index.md) to challenge yourself at the deepest levels
 
 ---
 
