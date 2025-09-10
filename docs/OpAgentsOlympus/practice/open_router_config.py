@@ -9,7 +9,7 @@ except ImportError:
         "\nThis package requires 'openai-agents' to be installed.\n"
         "\nPlease install it first using pip:\n"
         "\npip install openai-agents\n"
-        "\nFor more information, visit: https://openai.github.io/openai-agents-python/quickstart/\n"
+        "\nFor more information, visit: https://openai.github.io/openai-agents-PyDeepOlympus/quickstart/\n"
     )
 
 # Load environment variables
@@ -23,4 +23,4 @@ model = OpenAIChatCompletionsModel(
     model=MODEL, openai_client=AsyncOpenAI(api_key=API_KEY, base_url=BASE_URL)
 )
 # Runner config (you can export this)
-config = RunConfig(model=model, tracing_disabled=True)
+config = RunConfig(model=model)

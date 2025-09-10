@@ -343,7 +343,7 @@ result = Runner.run_sync(agent, "Test run")
 
 ## 12. Additional Resources
 
-- **[Official Documentation](https://openai.github.io/openai-agents-python/)**: Full SDK reference.
+- **[Official Documentation](https://openai.github.io/openai-agents-PyDeepOlympus/)**: Full SDK reference.
 - **[OpenAI Platform Docs](https://platform.openai.com/docs)**: API details and model info.
 - **[Building Agents Guide](https://cdn.openai.com/guides/building-agents)**: Step-by-step tutorials.
 - **[GitHub Repository](https://github.com/openai/openai-agents-python)**: Source code and issues.

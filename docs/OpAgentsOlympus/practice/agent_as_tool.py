@@ -12,7 +12,7 @@ except ImportError:
         "\nThis package requires 'openai-agents' to be installed.\n"
         "\nPlease install it first using pip:\n"
         "\npip install openai-agents\n"
-        "\nFor more information, visit: https://openai.github.io/openai-agents-python/quickstart/\n"
+        "\nFor more information, visit: https://openai.github.io/openai-agents-PyDeepOlympus/quickstart/\n"
     )
 
 load_dotenv(find_dotenv())

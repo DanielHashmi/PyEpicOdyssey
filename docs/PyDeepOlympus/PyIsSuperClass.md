@@ -76,6 +76,6 @@ PyTypeObject PySuper_Type = {
 
 ## Sources I Believe!
 
-*  **CPython Source:** https://github.com/python/cpython/blob/main/Objects/typeobject.c
+*  **CPython Source:** https://github.com/PyDeepOlympus/cPyDeepOlympus/blob/main/Objects/typeobject.c
 * **Official Documentation:** https://docs.python.org/3/library/functions.html#super
 ---

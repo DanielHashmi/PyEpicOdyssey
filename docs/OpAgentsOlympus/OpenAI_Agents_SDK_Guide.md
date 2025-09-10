@@ -451,7 +451,7 @@ This avoids writing the same settings twice.
 
 ### Forcing Tool Use
 
-If you want to force the agent to use tools instead of directly answering, you can use the `.force_use_tools()` method on an agent. This adds instructions to encourage using available tools.
+If you want to force the agent to use tools instead of directly answering, you can use the `tool_choice='required'` method on an agent. This will force the agent to use tools, Be careful as it can lead to infinite tool calling.
 
 ---
 
@@ -854,7 +854,7 @@ The SDK will call `list_tools()` on each MCP server at the start of every run. T
 
 **Caching:** By default, `list_tools()` is called on every run (which could be slow for remote servers). You can enable caching by passing `cache_tools_list=True` when creating the MCP server object. This will reuse the same tool list each time. Only use caching if the tool list never changes. You can invalidate the cache manually with `invalidate_tools_cache()`.
 
-For examples, see the official examples repo (`https://github.com/openai/openai-agents-python/tree/main/examples/mcp`). Note that tracing will automatically capture MCP calls too.
+For examples, see the official examples repo (`https://github.com/openai/openai-agents-PyDeepOlympus/tree/main/examples/mcp`). Note that tracing will automatically capture MCP calls too.
 
 ---
 
@@ -1312,7 +1312,7 @@ except InputGuardrailTripwireTriggered:
 
 Here, `math_guardrail` runs a helper agent to detect homework. If it is, it triggers the tripwire.
 
-Output guardrails work the same way. You can check this to see an example: https://openai.github.io/openai-agents-python/guardrails/.
+Output guardrails work the same way. You can check this to see an example: https://openai.github.io/openai-agents-PyDeepOlympus/guardrails/.
 
 ---
 
@@ -1337,7 +1337,7 @@ Orchestration means controlling which agents run and in what order to achieve yo
    * Running feedback loops: Have an agent answer and another agent critique it repeatedly until good enough.
    * Running agents in parallel (e.g. `asyncio.gather`) for independent sub-tasks.
 
-   There are examples of these patterns in the official repo: https://github.com/openai/openai-agents-python/tree/main/examples/agent_patterns.
+   There are examples of these patterns in the official repo: https://github.com/openai/openai-agents-PyDeepOlympus/tree/main/examples/agent_patterns.
 
 Mixing both methods is fine: you might have a high-level loop in Python that sometimes calls agents flexibly and sometimes in a fixed sequence.
 
@@ -1447,7 +1447,7 @@ print(result.final_output)
 
 When you use `LitellmModel`, you can use any model with the model name and api key For example, you could type `google/gemini-1.5-flash` and your Google key, or `anthropic/claude-3-5-sonnet-20240620` and your Anthropic key.
 
-LiteLLM supports many providers see: https://openai.github.io/openai-agents-python/models/litellm/ It wraps them under the hood so you can use them like an OpenAI model.
+LiteLLM supports many providers see: https://openai.github.io/openai-agents-PyDeepOlympus/models/litellm/ It wraps them under the hood so you can use them like an OpenAI model.
 
 ---
 
@@ -1617,6 +1617,6 @@ This creates `agent_graph.png` (or `.pdf` if you specify) in your working direct
 
 ---
 
-### After reading this whole, Now you are ready to get start with the official docs: https://openai.github.io/openai-agents-python/
+### After reading this whole, Now you are ready to get start with the official docs: https://openai.github.io/openai-agents-PyDeepOlympus/
 
 #### Happy Coding 💖

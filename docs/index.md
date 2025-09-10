@@ -52,10 +52,20 @@ If you want to truly understand Python (and the new OpenAI Agents SDK), you’re
 
 ---
 
-## 👨‍💻 About the Author
+## 🚀 **Ready to dig deep?**  
 
-I’m **Daniel Hashmi** —  
-Full-stack developer, TS/JS/PY/C/C++ programmer, Learning Agentic AI, Web 3 & Cloud Computing
+1. Dive into [Python Internals](PyDeepOlympus/PythonRunningCode.md) to understand the language better
+2. Start with the [OpenAI Agents SDK Guide](OpAgentsOlympus/OpenAI_Agents_SDK_Guide.md) for a comprehensive overview
+2. Check out the [Practice Examples](OpAgentsOlympus/practice/) for hands-on learning
+4. Explore [Advance Concepts](OpAgentsOlympus/) to be confidant when building
+4. Gaze [OpenAI Agents SDK Advance MindMap](OpAgentsOlympus/openai_agent_sdk_mindmap) to get quick clear concepts
+5. Attempt [Complex Quizzes](OpAgentsOlympus/practice/100-mcqs-answer/) to chellange yourself at the deepest levels
+
+---
+
+## 👨‍💻 About Me
+
+I’m **Daniel Hashmi** a Learner!
 
 - I love creative ideas, theories & going deep.
 - Building stuff for devs who want to truly understand.
@@ -76,13 +86,14 @@ Full-stack developer, TS/JS/PY/C/C++ programmer, Learning Agentic AI, Web 3 & Cl
 
 ## ⭐ Support & Share
 
-If this repo helps you:
-- Give it a ⭐!  
+If these resources helps you:
+- Give it a ⭐ on Github.
 - Share it with other advanced Python or agentic AI learners.
 
 ---
 
-> **Ready to dig deep?**  
-> Explore the [OpAgentsOlympus](./OpAgentsOlympus/) and [PyDeepOlympus](./PyDeepOlympus/) folders for all the latest experiments and breakdowns.
+## 📖 Navigation
+
+Use the navigation menu on the left to browse through topics, or use the search function at the top to find specific content.
 
 Keep digging and diving, keep learning! 🚀

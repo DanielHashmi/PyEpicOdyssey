@@ -99,7 +99,7 @@ tool = FunctionTool(
 
 ## Notes
 
-The function schema system uses strict JSON schemas by default to improve LLM compliance, automatically detects docstring formats, and supports complex parameter patterns including variadic arguments. The schema generation code lives in `src/agents/function_schema.py` and integrates with the broader tool system through the `@function_tool` decorator and `FunctionTool` class. 
+The function schema system uses strict JSON schemas by default to improve LLM compliance, automatically detects docstring formats, and supports complex parameter patterns including variadic arguments. The schema generation code lives in `src/OpAgentsOlympus/function_schema.py` and integrates with the broader tool system through the `@function_tool` decorator and `FunctionTool` class. 
 
 To Learn More About Strict Mode:
 

@@ -1,0 +1,258 @@
+site_name: PyEpicOdyssey
+site_url: https://danielhashmi.github.io/PyEpicOdyssey/
+
+repo_url: https://github.com/DanielHashmi/PyEpicOdyssey
+repo_name: DanielHashmi/PyEpicOdyssey
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.sections
+    - navigation.top
+    - navigation.path
+    - navigation.expand
+    - toc.follow
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
+    - search.suggest
+    - search.highlight
+    - palette.toggle
+    - header.repository
+  palette:
+    - scheme: default
+      primary: black
+      accent: black
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: black
+      accent: black
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  logo: assets/logo.png
+  favicon: assets/logo.png
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - attr_list
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+      auto_title: true
+      linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      check_paths: true
+      base_path:
+        - docs
+        - docs/OpAgentsOlympus
+        - docs/OpAgentsOlympus/practice
+        - docs/OpAgentsOlympus/practice/100-mcqs-answer
+  - pymdownx.superfences
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - def_list
+  - meta
+  - md_in_html
+
+plugins:
+  - gen-files:
+      scripts:
+        - scripts/gen_practice_wrappers.py
+      exclude:
+        - "docs/OpAgentsOlympus/practice/openai-agents-PyDeepOlympus/"
+  - awesome-pages
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths:
+            - src
+          options:
+            show_source: true
+            show_root_heading: true
+            show_category_heading: true
+            show_submodules: true
+            # selection
+            docstring_style: google
+            docstring_section_style: table
+            # rendering
+            members_order: source
+            separate_signature: true
+            show_signature_annotations: true
+            signature_crossrefs: true
+            heading_level: 3
+            inherited_members: true
+            merge_init_into_class: true
+            show_if_no_docstring: true
+
+extra:
+  version: 1.0
+  generator: false
+  language: en
+
+extra_css:
+  - styles.css
+
+watch:
+  - src
+  - scripts
+
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+  anchors: warn
+
+nav:
+  - Intro: index.md
+  - OpAgentsOlympus:
+      - Overview: OpAgentsOlympus/OpenAI_Agents_SDK_Guide.md
+      - Mindmap: OpAgentsOlympus/openai_agent_sdk_mindmap.md
+      - Concepts:
+          - README: OpAgentsOlympus/README.md
+          - Agent Loop: OpAgentsOlympus/OpAgentLoop.md
+          - Run Configuration: OpAgentsOlympus/OpAgentsRunConfig.md
+          - Tools: OpAgentsOlympus/OpAgentsTools.md
+          - Slots: OpAgentsOlympus/OpAgentsSlots.md
+          - Strict Mode: OpAgentsOlympus/OpAgentsStrictMode.md
+          - Tool Behavior: OpAgentsOlympus/OpAgentsOrderOfTools&CustomToolUseBehavior.md
+          - Token Consumption: OpAgentsOlympus/OpAgentsTokenConsumption.md
+          - Streaming & Filtering: OpAgentsOlympus/OpAgentsStreaming&Filtering.md
+          - Filtering Precedence: OpAgentsOlympus/OpAgentsFilteringPrecedence.md
+          - Deep Context: OpAgentsOlympus/OpDeepTContext.md
+          - Complex MCQ: OpAgentsOlympus/OpAgentsComplexMCQ.md
+          - Prompt Engineering: OpAgentsOlympus/OpAgentsPromptEng.md
+          - Step Results: OpAgentsOlympus/OpAgents_get_single_step_result_from_response.md
+          - Efficiency Bug: OpAgentsOlympus/OpAgentsEfficiencyBug.md
+          - LocalLLM Streamed: OpAgentsOlympus/OpAgentsLocalLLMStreamed.md
+          - Run Sync vs Run: OpAgentsOlympus/OpAgentsDiff_run_sync_and_run.md
+          - Pydantic Integration: OpAgentsOlympus/OpAgentsNeedsPydantic.md
+          - Trick Strict Mode: OpAgentsOlympus/OpAgentsTrickStrict.md
+      - Practice Examples:
+          - README: OpAgentsOlympus/practice/README.md
+          - Agent as Tool: OpAgentsOlympus/practice/agent_as_tool.md
+          - Agent as Tool (Pattern): OpAgentsOlympus/practice/agent_as_tool_pattern.md
+          - Agent Lifecycle: OpAgentsOlympus/practice/agent_lifecycle.md
+          - Agents 1: OpAgentsOlympus/practice/agents1.md
+          - REPL: OpAgentsOlympus/practice/REPL.md
+          - Config: OpAgentsOlympus/practice/config.md
+          - Custom Tools: OpAgentsOlympus/practice/custom_tool.md
+          - Dynamic Prompt: OpAgentsOlympus/practice/dynamic_prompt.md
+          - Text: OpAgentsOlympus/practice/text.md
+          - Tools: OpAgentsOlympus/practice/tools.md
+          - Custom Output Schema: OpAgentsOlympus/practice/custom_output_schema.md
+          - Deterministic Pattern: OpAgentsOlympus/practice/deterministic_pattern.md
+          - Function Tools: OpAgentsOlympus/practice/function_tool.md
+          - Dynamic Prompts: OpAgentsOlympus/practice/dynamic_prompt.md
+          - Dynamic System Prompt: OpAgentsOlympus/practice/dynamic_system_prompt.md
+          - Forcing Tool Use: OpAgentsOlympus/practice/forcing_tool_use.md
+          - Guardrails Flow: OpAgentsOlympus/practice/guardrails_flow.md
+          - Context in Function Tools: OpAgentsOlympus/practice/context_in_function_tools.md
+          - Context in Guardrails: OpAgentsOlympus/practice/context_in_guardrails.md
+          - Context in Hooks: OpAgentsOlympus/practice/context_in_hooks.md
+          - Hooks Execution Count: OpAgentsOlympus/practice/hooks_execution_count.md
+          - Image Processing: OpAgentsOlympus/practice/image_agent.md
+          - Model Settings: OpAgentsOlympus/practice/model_settings.md
+          - Multi-tool Agents: OpAgentsOlympus/practice/multi_tools_agent.md
+          - Streaming: OpAgentsOlympus/practice/gemini_with_streaming.md
+          - Handoff and Agent as Tool Question: OpAgentsOlympus/practice/handoff_and_agent_as_tool_question.md
+          - Immutable Context (dataclasses): OpAgentsOlympus/practice/immutable_context_dataclasses.md
+          - Immutable Context (Pydantic): OpAgentsOlympus/practice/immutable_context_pydantic.md
+          - Input Guardrail Trip: OpAgentsOlympus/practice/input_guardrail_trip.md
+          - Input Guardrails: OpAgentsOlympus/practice/input_guardrails.md
+          - Simple Agent: OpAgentsOlympus/practice/simple_agent.md
+          - Is Enabled (Real World Example): OpAgentsOlympus/practice/is_enabled_real_world_example.md
+          - Is Run Context Wrapper Just a Type Hint?: OpAgentsOlympus/practice/is_run_context_wrapper_just_a_type_hint.md
+          - LangSmith Tracing: OpAgentsOlympus/practice/langsmith_tracing.md
+          - LiteLLM Config: OpAgentsOlympus/practice/litellm_config.md
+          - LLM as Judge Pattern: OpAgentsOlympus/practice/llm_as_judge_pattern.md
+          - Local Config: OpAgentsOlympus/practice/local_config.md
+          - Main: OpAgentsOlympus/practice/main.md
+          - Max Tokens: OpAgentsOlympus/practice/max_tokens.md
+          - Max Turn Example: OpAgentsOlympus/practice/max_turn_example.md
+          - Mess with Model Settings and Tools: OpAgentsOlympus/practice/mess_with_model_settings_and_tools.md
+          - Non-Strict Output: OpAgentsOlympus/practice/non_strict_output.md
+          - Open Router Config: OpAgentsOlympus/practice/open_router_config.md
+          - Output Guardrails: OpAgentsOlympus/practice/output_guardrails.md
+          - Output Guardrails (Run First or End Hooks): OpAgentsOlympus/practice/output_guardrails_run_first_or_end_hooks.md
+          - Parallel Tool Call: OpAgentsOlympus/practice/parallel_tool_call.md
+          - Parallelization Pattern: OpAgentsOlympus/practice/parallelization_pattern.md
+          - Practice Script: OpAgentsOlympus/practice/practice.md
+          - Premium Basic User Example: OpAgentsOlympus/practice/premium_basic_user_example.md
+          - Previous Response ID: OpAgentsOlympus/practice/previous_response_id.md
+          - Prompt Template: OpAgentsOlympus/practice/prompt_template.md
+          - Pydantic Cheatsheet: OpAgentsOlympus/practice/pydantic_cheatsheet.md
+          - Quickstart: OpAgentsOlympus/practice/quickstart.md
+          - Raise UserError: OpAgentsOlympus/practice/raise_usererror.md
+          - Remote Image: OpAgentsOlympus/practice/remote_image.md
+          - Routing Pattern: OpAgentsOlympus/practice/routing_pattern.md
+          - Run Hooks: OpAgentsOlympus/practice/run_hooks.md
+          - Run Lifecycle: OpAgentsOlympus/practice/run_lifecycle.md
+          - Stream Items: OpAgentsOlympus/practice/stream_items.md
+          - Stream Text: OpAgentsOlympus/practice/stream_text.md
+          - Subscription Management Application: OpAgentsOlympus/practice/subscription_management_application.md
+          - Test Run Config Inheritance: OpAgentsOlympus/practice/test_run_config_inheritance.md
+          - Testing: OpAgentsOlympus/practice/testing.md
+          - Testing 2222: OpAgentsOlympus/practice/testing2222.md
+          - Tool Call Error: OpAgentsOlympus/practice/tool_call_error.md
+          - Tool Calling Error: OpAgentsOlympus/practice/tool_calling_error.md
+          - Tool Choice: OpAgentsOlympus/practice/tool_choice.md
+          - Tool Choice with Tool Name Set: OpAgentsOlympus/practice/tool_choice_with_tool_name_set.md
+          - Tool Use Behavior Set to None: OpAgentsOlympus/practice/tool_use_behavior_set_to_none.md
+          - Tools: OpAgentsOlympus/practice/tools.md
+          - Top P: OpAgentsOlympus/practice/top_p.md
+          - Tracing in Console: OpAgentsOlympus/practice/tracing_in_console.md
+          - Turn Count per LLM Invocation: OpAgentsOlympus/practice/turn_count_per_llm_invocation.md
+          - SDK Guide: OpAgentsOlympus/practice/openai_agents_sdk.md
+          - Pydantic: OpAgentsOlympus/practice/pydantic.md
+          - Input Filter Precedence: OpAgentsOlympus/practice/input_filter_precedence.md
+      - Quizzes:
+          - Attempt MCQs: OpAgentsOlympus/practice/100-mcqs-answer/index.md
+          - 100 MCQs Answer:
+              - "MCQ 1 - JSON Schema": OpAgentsOlympus/practice/100-mcqs-answer/#1. strict_json_schema.md
+              - "MCQ 2 - Handoff Input Filter": OpAgentsOlympus/practice/100-mcqs-answer/#2. handoff_input_filter.md
+              - "MCQ 8 - Tools to Final Output": OpAgentsOlympus/practice/100-mcqs-answer/#8. tools_to_final_output_result.md
+              - "MCQ 11 - Sequence of Events": OpAgentsOlympus/practice/100-mcqs-answer/#11. sequence_of_events.md
+              - "MCQ 21 - Stop on First Tool": OpAgentsOlympus/practice/100-mcqs-answer/#21. stop_on_first_tool_with_none.md
+              - "MCQ 24 - Tool Choice Required": OpAgentsOlympus/practice/100-mcqs-answer/#24. tool_choice_required_with_reset_false.md
+              - "MCQ 25 - Stop on Tool Name": OpAgentsOlympus/practice/100-mcqs-answer/#25. stop_on_tool_name.md
+              - "MCQ 34 - Consume Events": OpAgentsOlympus/practice/100-mcqs-answer/#34. consume_remain_events.md
+              - "MCQ 42 - Custom Tool Behavior": OpAgentsOlympus/practice/100-mcqs-answer/#42. custom_tool_use_behavior.md
+              - "MCQ 43 - Event Sequence": OpAgentsOlympus/practice/100-mcqs-answer/#43. event_sequence.md
+              - "MCQ 44 - Handoff Chain": OpAgentsOlympus/practice/100-mcqs-answer/#44. handoff_chain_with_input_filter.md
+              - "MCQ 45 - Model Precedence": OpAgentsOlympus/practice/100-mcqs-answer/#45. model_precedense.md
+              - "MCQ 46 - Context Propagation": OpAgentsOlympus/practice/100-mcqs-answer/#46. nested_agent_context_propagation.md
+              - "MCQ 47 - Cancel While Streaming": OpAgentsOlympus/practice/100-mcqs-answer/#47. cancel_while_streaming.md
+              - "MCQ 48 - JSON With String Age": OpAgentsOlympus/practice/100-mcqs-answer/#48. json.with_string_age.md
+              - "MCQ 54 - Session": OpAgentsOlympus/practice/100-mcqs-answer/#54. session.md
+              - "MCQ 59 - Consume First Stream": OpAgentsOlympus/practice/100-mcqs-answer/#59. consume_only_first_stream.md
+              - "MCQ 60 - Session Input List": OpAgentsOlympus/practice/100-mcqs-answer/#60. session_with_input_list.md
+              - "MCQ 66 - Tool Return Type": OpAgentsOlympus/practice/100-mcqs-answer/#66. tool_return_type.md
+              - "MCQ 72 - Turn Count": OpAgentsOlympus/practice/100-mcqs-answer/#72. turn_count.md
+              - "MCQ 79 - Tool Execution Flow": OpAgentsOlympus/practice/100-mcqs-answer/#79. tool_execution_flow.md
+              - "MCQ 80 - Input Guardrail Error": OpAgentsOlympus/practice/100-mcqs-answer/#80. value_error_in_input_guardrail.md
+              - "MCQ 90 - Span Hierarchy": OpAgentsOlympus/practice/100-mcqs-answer/#90. span_hierarchy_preserved.md
+              - Configuration: OpAgentsOlympus/practice/100-mcqs-answer/config.md
+              - OpenRouter Config: OpAgentsOlympus/practice/100-mcqs-answer/open_router_config.md
+      - Download Notebooks:
+          - Learn LiteLLM: OpAgentsOlympus/practice/learn_lite_llm.ipynb
+          - Learn OpenAI Agent SDK: OpAgentsOlympus/practice/learn_openai_agent_sdk.ipynb
+          - Practice: OpAgentsOlympus/practice/practice.ipynb
+  - PyDeepOlympus:
+      - String Interning: PyDeepOlympus/DeepStringInterning.md
+      - Bytecode Interpreter: PyDeepOlympus/PyBeTheInterpreter.md
+      - Abstraction & Encapsulation: PyDeepOlympus/PyDiffAbs&Encps.md
+      - Super Class: PyDeepOlympus/PyIsSuperClass.md
+      - MRO C3 Algorithm: PyDeepOlympus/PyMROC3Algo.md
+      - Code Execution: PyDeepOlympus/PythonRunningCode.md
+      - Bitwise Operations: PyDeepOlympus/PyUnderstandBitwise.md

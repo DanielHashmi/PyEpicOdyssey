@@ -9,7 +9,7 @@ except ImportError:
         "\nThis package requires 'openai-agents' to be installed.\n"
         "\nPlease install it first using pip:\n"
         "\npip install openai-agents\n"
-        "\nFor more information, visit: https://openai.github.io/openai-agents-python/quickstart/\n"
+        "\nFor more information, visit: https://openai.github.io/openai-agents-PyDeepOlympus/quickstart/\n"
     )
 
 # Load environment variables
@@ -27,8 +27,8 @@ external_client = AsyncOpenAI(
 
 # Preferred Gemini model setup
 model = OpenAIChatCompletionsModel(
-    model="gemini-1.5-flash", openai_client=external_client
+    model="gemini-2.5-flash-preview-04-17", openai_client=external_client
 )
 
 # Runner config (you can export this)
-config = RunConfig(model=model, model_provider=external_client)
+config = RunConfig(model=model, model_provider=external_client, tracing_disabled=True)
