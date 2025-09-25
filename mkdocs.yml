@@ -214,7 +214,7 @@ nav:
           - Tracing in Console: OpAgentsOlympus/practice/tracing_in_console.md
           - Turn Count per LLM Invocation: OpAgentsOlympus/practice/turn_count_per_llm_invocation.md
           - SDK Guide: OpAgentsOlympus/practice/openai_agents_sdk.md
-          - Pydantic: OpAgentsOlympus/practice/pydantic.md
+          - Pydantic Comprehensive Examples: OpAgentsOlympus/practice/pydantic_comprehensive_examples.md
           - Input Filter Precedence: OpAgentsOlympus/practice/input_filter_precedence.md
       - Quizzes:
           - Attempt MCQs: OpAgentsOlympus/practice/100-mcqs-answer/index.md
@@ -242,6 +242,12 @@ nav:
               - "MCQ 79 - Tool Execution Flow": OpAgentsOlympus/practice/100-mcqs-answer/#79. tool_execution_flow.md
               - "MCQ 80 - Input Guardrail Error": OpAgentsOlympus/practice/100-mcqs-answer/#80. value_error_in_input_guardrail.md
               - "MCQ 90 - Span Hierarchy": OpAgentsOlympus/practice/100-mcqs-answer/#90. span_hierarchy_preserved.md
+              - "MCQ 95 - Inner Agent Execution Context": OpAgentsOlympus/practice/100-mcqs-answer/#95. inner_agent_execution_context.md
+              - "MCQ 96 - Default Behavior of Runhooks and Agenthook": OpAgentsOlympus/practice/100-mcqs-answer/#96. default_behavior_of_runhooks_and_agenthook.md
+              - "MCQ 97 - Hook Execution Sequence": OpAgentsOlympus/practice/100-mcqs-answer/#97. hook_execution_secuence.md
+              - "MCQ 98 - Hook Execution Failure": OpAgentsOlympus/practice/100-mcqs-answer/#98. hook_execution_failure.md
+              - "MCQ 99 - Context During Hook Execution": OpAgentsOlympus/practice/100-mcqs-answer/#99. context_during_hook_execution.md
+              - "MCQ 100 - Handoff Parameter Structure": OpAgentsOlympus/practice/100-mcqs-answer/#100. handoff_parameter_structure.md
               - Configuration: OpAgentsOlympus/practice/100-mcqs-answer/config.md
               - OpenRouter Config: OpAgentsOlympus/practice/100-mcqs-answer/open_router_config.md
       - Download Notebooks:

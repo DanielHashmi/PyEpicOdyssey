@@ -3,7 +3,7 @@ from local_config import config
 
 def main():
     agent = Agent(
-        name="Joker",
+        name="assistant",
         instructions="You are a helpful assistant.",
     )
     result = Runner.run_sync(
